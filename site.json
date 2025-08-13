@@ -1,0 +1,29 @@
+{
+    "config": {
+        "name": "TellSomeone.org.uk Rape Gangs Crime Reporting",
+        "base_url": "https://tellsomeone.org.uk",
+        "default_image": "/images/share_tellsomeone_org_uk.png",
+        "twitter_handle": "@tellsomeone"
+    },
+    "pages": [
+        {
+            "id": "landing",
+            "template": "landing.html",
+            "output": "index.html",
+            "title": "",
+            "description": ".",
+            "keywords": [],
+            "current_page": "home",
+            "is_landing": true,
+            "canonical": "/",
+            "og_image": "/images/share_tellsomeone_org_uk.png",
+            "priority": 1.0,
+            "changefreq": "weekly"
+        }
+    ],
+    "robots": {
+        "user_agent": "*",
+        "disallow": [],
+        "sitemap": "/sitemap.xml"
+    }
+}

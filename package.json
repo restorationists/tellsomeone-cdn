@@ -1,0 +1,22 @@
+{
+    "name": "tellsomeone",
+    "version": "0.1.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite dev",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "prettier --check . && eslint .",
+        "format": "prettier --write .",
+        "serve": "npx serve ./dist",
+        "start": "npm run build && npm run serve"
+    },
+    "devDependencies": {
+
+    },
+    "dependencies": {
+
+    }
+
+}
