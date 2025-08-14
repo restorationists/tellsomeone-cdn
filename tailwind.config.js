@@ -1,16 +1,18 @@
 /** @type {import('tailwindcss').Config} */
-
-export default {
+module.exports = {
   content: [
-
+    "./src/layouts/*.html",
+    "./src/partials/*.html"
   ],
-    safelist: [
-
-  ],
-	theme: {
-
-	},
-	plugins: [
-		require('@tailwindcss/typography'),
-	]
+  theme: {
+    extend: {
+      colors: {
+        primary: 'oklch(59.2% 0.249 0.584)',
+      },
+      fontFamily: {
+        sans: ['Raleway', 'sans-serif'],
+      }
+    },
+  },
+  plugins: [],
 }
