@@ -45,17 +45,22 @@ function push_repo() {
         exit 1
     fi
     
+    # Store current directory
+    local original_dir=$(pwd)
+    
     # Check if this is a git repository
     if [[ ! -d ".git" ]]; then
         echo "❌ '$DIST_DIR' is not a git repository!"
-        cd - >/dev/null
+        cd "$original_dir"
         exit 1
     fi
     
     git add .
     git commit -m "$COMMIT_MSG" || echo "⚠️  Nothing to commit."
     git push origin HEAD
-    cd - >/dev/null
+    
+    # Return to original directory
+    cd "$original_dir"
     echo "✅ Git push complete."
 }
 
@@ -68,17 +73,32 @@ function upload_to_cdn() {
     fi
 
     # Upload files to BunnyCDN
+    echo "🔍 Debug info:"
+    echo "  Region: $TS_BUNNY_REGION"
+    echo "  Bucket: $TS_BUNNY_BUCKET" 
+    echo "  Token: ${TS_BUNNY_BUCKET_TOKEN:0:10}..."
+    echo ""
+    
     find "$DIST_DIR" -type f ! -path "$DIST_DIR/.git/*" ! -name ".git" | while read -r file; do
         relative_path="${file#$DIST_DIR/}"
-        remote_url="https://${TS_BUNNY_REGION}.storage.bunnycdn.com/${TS_BUNNY_BUCKET}/${relative_path}"
+        remote_url="https://${TS_BUNNY_REGION}.bunnycdn.com/${TS_BUNNY_BUCKET}/${relative_path}"
         echo "🟢 Uploading: $relative_path → $remote_url"
 
+        # Try upload with verbose output on failure
         if ! curl --silent --show-error --fail --request PUT \
             --url "$remote_url" \
             --header "AccessKey: $TS_BUNNY_BUCKET_TOKEN" \
             --header "Content-Type: application/octet-stream" \
+            --header "accept: application/json" \
             --data-binary @"$file"; then
             echo "❌ Failed to upload: $relative_path"
+            echo "🔍 Retrying with verbose output..."
+            curl -v --request PUT \
+                --url "$remote_url" \
+                --header "AccessKey: $TS_BUNNY_BUCKET_TOKEN" \
+                --header "Content-Type: application/octet-stream" \
+                --header "accept: application/json" \
+                --data-binary @"$file"
             exit 1
         fi
     done
