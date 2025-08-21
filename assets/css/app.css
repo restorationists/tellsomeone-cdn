@@ -1,31 +1,36 @@
-        :root {
-            --primary: oklch(59.2% 0.249 0.584);
-        }
-        body {
-            font-family: 'Raleway', sans-serif;
-        }
-        .bg-primary {
-            background-color: var(--primary);
-        }
-        .text-primary {
-            color: var(--primary);
-        }
-        .border-primary {
-            border-color: var(--primary);
-        }
+:root {
+    --primary: oklch(59.2% 0.249 0.584);
+}
+body {
+    font-family: 'Raleway', sans-serif;
+}
 
-        .nav-item-hover {
-            transition: all 0.3s ease;
-        }
-        .nav-item-hover:hover {
-            background: var(--primary) !important;
-            color: white !important;
-            transform: scale(1.05);
-        }
-        .nav-item-hover:hover .nav-icon {
-            color: white !important;
-        }
-        .nav-icon {
-            color: #f5f5f5;
-            transition: color 0.3s ease;
-        }
+a {
+    color: oklch(59.2% 0.249 0.584);
+}
+
+.bg-primary {
+    background-color: var(--primary);
+}
+.text-primary {
+    color: var(--primary);
+}
+.border-primary {
+    border-color: var(--primary);
+}
+
+.nav-item-hover {
+    transition: all 0.3s ease;
+}
+.nav-item-hover:hover {
+    background: var(--primary) !important;
+    color: white !important;
+    transform: scale(1.05);
+}
+.nav-item-hover:hover .nav-icon {
+    color: white !important;
+}
+.nav-icon {
+    color: #f5f5f5;
+    transition: color 0.3s ease;
+}

@@ -38,15 +38,15 @@
             "changefreq": "monthly"
         },
         {
-            "id": "inquiry",
+            "id": "inquiries",
             "template": "inquiry.html",
-            "output": "inquiry/index.html",
+            "output": "inquiries/index.html",
             "title": "The Lowe Inquiry - Independent Investigation",
             "description": "Learn about the Lowe Inquiry - the independent investigation into grooming gangs and child sexual exploitation. Why it matters and why the government inquiry isn't enough.",
             "keywords": ["lowe inquiry", "independent investigation", "grooming gangs", "government inquiry", "parliamentary privilege", "CSE inquiry", "child sexual exploitation investigation"],
-            "current_page": "inquiry",
-            "nav_title": "The Inquiry",
-            "canonical": "/inquiry/",
+            "current_page": "inquiries",
+            "nav_title": "The Inquiries",
+            "canonical": "/inquiries/",
             "seo": ["independent inquiry", "parliamentary investigation", "CSE inquiry", "grooming gang investigation", "lowe inquiry logo"],
             "priority": 0.9,
             "changefreq": "weekly"

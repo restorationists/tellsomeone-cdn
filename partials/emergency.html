@@ -1,3 +1,239 @@
-<section>
-    <!-- todo -->
+<section class="w-full px-4 md:px-8 py-12">
+    <div class="w-full max-w-6xl mx-auto">
+        <!-- Quick Exit Button -->
+        <div class="fixed top-4 right-4 z-50">
+            <button onclick="window.location.href='https://google.com'" 
+                    class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded text-sm font-medium transition-colors duration-200">
+                Quick Exit
+            </button>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl md:text-5xl font-light mb-12 text-white text-center">Emergency Help</h1>
+        
+        <!-- Intro -->
+        <div class="max-w-4xl mx-auto mb-12">
+            <div class="bg-neutral-900 p-8 rounded-lg text-center">
+                <h2 class="text-2xl font-semibold mb-6 text-white">Immediate assistance available 24/7</h2>
+                <p class="text-neutral-200 text-lg leading-relaxed">
+                    If you or someone you know is in immediate danger, these numbers provide professional, confidential support at any time of day or night.
+                </p>
+            </div>
+        </div>
+
+        <!-- First Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Immediate Danger -->
+            <div class="bg-neutral-900 p-8 rounded-lg">
+                <div class="flex items-center mb-6">
+                    <iconify-icon icon="mdi:alert" class="text-3xl mr-4 text-primary"></iconify-icon>
+                    <h2 class="text-2xl font-semibold text-white">Immediate Danger</h2>
+                </div>
+                <p class="text-neutral-200 mb-6">Someone is in immediate danger, seriously injured, or a crime is happening now</p>
+                
+                <div class="space-y-4">
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-3xl font-bold text-primary">999</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-lg font-semibold text-white">Emergency Services</h3>
+                            <p class="text-neutral-300 text-sm">Police, Ambulance, Fire, Coastguard</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-3xl font-bold text-primary">112</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-lg font-semibold text-white">EU Emergency</h3>
+                            <p class="text-neutral-300 text-sm">Works anywhere in Europe</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-800 p-4 rounded mt-6">
+                    <p class="text-neutral-200 text-sm"><strong>Silent Emergency:</strong> Can't speak? Call 999 and press <strong>55</strong> when prompted (mobile only)</p>
+                </div>
+
+                <div class="bg-red-900/20 border border-red-500/30 rounded p-4 mt-4">
+                    <p class="text-neutral-200 text-sm"><strong>If the perpetrator is a police officer or emergency service worker:</strong> You can still call 999. Ask to speak to a supervisor or contact the Independent Office for Police Conduct.</p>
+                </div>
+            </div>
+
+            <!-- Child Protection -->
+            <div class="bg-neutral-900 p-8 rounded-lg">
+                <div class="flex items-center mb-6">
+                    <iconify-icon icon="mdi:shield-account" class="text-3xl mr-4 text-primary"></iconify-icon>
+                    <h2 class="text-2xl font-semibold text-white">Child Protection</h2>
+                </div>
+                <p class="text-neutral-200 mb-6">A child is missing, in immediate danger, or being harmed</p>
+                
+                <div class="space-y-3">
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-xl font-bold text-primary">0808 800 5000</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">NSPCC Helpline</h3>
+                            <p class="text-neutral-300 text-xs">24/7 child protection specialists</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-lg font-bold text-primary">0800 1111</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">Childline</h3>
+                            <p class="text-neutral-300 text-xs">For children and young people</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-sm font-bold text-primary">General enquiries</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">Barnardo's</h3>
+                            <p class="text-neutral-300 text-xs">Search local services online</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-800 p-4 rounded mt-4">
+                    <p class="text-neutral-200 text-sm"><strong>For immediate danger:</strong> Call 999 first, then NSPCC for additional support</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Sexual Violence -->
+            <div class="bg-neutral-900 p-8 rounded-lg">
+                <div class="flex items-center mb-6">
+                    <iconify-icon icon="mdi:heart-plus" class="text-3xl mr-4 text-primary"></iconify-icon>
+                    <h2 class="text-2xl font-semibold text-white">Sexual Assault & Rape</h2>
+                </div>
+                <p class="text-neutral-200 mb-6">Professional, confidential support for survivors of sexual violence</p>
+                
+                <div class="space-y-3">
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-xl font-bold text-primary">0808 500 2222</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">Rape Crisis England & Wales</h3>
+                            <p class="text-neutral-300 text-xs">24/7 support line & online chat</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-lg font-bold text-primary">08088 01 03 02</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">Rape Crisis Scotland</h3>
+                            <p class="text-neutral-300 text-xs">5pm-midnight daily</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-lg font-bold text-primary">0800 0246 991</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">Rape Crisis Northern Ireland</h3>
+                            <p class="text-neutral-300 text-xs">Information & support line</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-lg font-bold text-primary">0808 802 1414</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">Domestic & Sexual Abuse (NI)</h3>
+                            <p class="text-neutral-300 text-xs">24/7 helpline</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-neutral-800 p-4 rounded mt-4">
+                    <p class="text-neutral-200 text-sm">Free, confidential support for anyone 16+ affected by sexual violence. <strong>Available 24/7.</strong></p>
+                </div>
+            </div>
+
+            <!-- Domestic Abuse -->
+            <div class="bg-neutral-900 p-8 rounded-lg">
+                <div class="flex items-center mb-6">
+                    <iconify-icon icon="mdi:home-heart" class="text-3xl mr-4 text-primary"></iconify-icon>
+                    <h2 class="text-2xl font-semibold text-white">Domestic Abuse</h2>
+                </div>
+                <p class="text-neutral-200 mb-6">Support for anyone experiencing domestic violence or abuse</p>
+                
+                <div class="space-y-3">
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-xl font-bold text-primary">0808 2000 247</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">National Domestic Abuse (Women)</h3>
+                            <p class="text-neutral-300 text-xs">24/7 freephone helpline</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-xl font-bold text-primary">0808 801 0327</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">Respect (Men)</h3>
+                            <p class="text-neutral-300 text-xs">Domestic abuse support</p>
+                        </div>
+                    </div>
+
+                    <div class="flex">
+                        <div class="w-1/2">
+                            <span class="text-lg font-bold text-primary">0800 970 2070</span>
+                        </div>
+                        <div class="w-1/2">
+                            <h3 class="text-sm font-semibold text-white">Scotland's Helpline</h3>
+                            <p class="text-neutral-300 text-xs">Domestic abuse & forced marriage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Important Information -->
+        <div class="bg-neutral-800 p-8 rounded-lg">
+            <h2 class="text-2xl font-semibold mb-6 text-white text-center">Important Information</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex items-start">
+                        <iconify-icon icon="mdi:check-circle" class="text-xl mr-3 mt-1 text-primary"></iconify-icon>
+                        <p class="text-neutral-200"><strong>All calls are free</strong> and can be made from any phone, including mobiles without credit.</p>
+                    </div>
+                    <div class="flex items-start">
+                        <iconify-icon icon="mdi:account-off" class="text-xl mr-3 mt-1 text-primary"></iconify-icon>
+                        <p class="text-neutral-200"><strong>You don't need to give your name</strong> - you can remain anonymous if you prefer.</p>
+                    </div>
+                    <div class="flex items-start">
+                        <iconify-icon icon="mdi:lock" class="text-xl mr-3 mt-1 text-primary"></iconify-icon>
+                        <p class="text-neutral-200"><strong>All calls are confidential</strong> - trained professionals are there to listen without judgment.</p>
+                    </div>
+                    <div class="flex items-start">
+                        <iconify-icon icon="mdi:translate" class="text-xl mr-3 mt-1 text-primary"></iconify-icon>
+                        <p class="text-neutral-200"><strong>Language support available</strong> - ask for an interpreter if English isn't your first language.</p>
+                    </div>
+                </div>
+                
+                <p class="text-neutral-200 text-center mt-8">
+                    You are not alone. Help is available 24 hours a day, 7 days a week.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
