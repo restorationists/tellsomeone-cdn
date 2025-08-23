@@ -26,6 +26,11 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://tellsomeone.org.uk/get-involved/</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://tellsomeone.org.uk/emergency/</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
