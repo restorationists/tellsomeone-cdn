@@ -72,14 +72,15 @@ class SiteGenerator {
 
   async buildSite() {
     try {
-      // Build pages
-      await this.buildPages();
-      
-      // Copy assets
+      // Copy assets first (needed for CSS processing)
       await this.copyAssets();
       
-      // Process CSS (Tailwind)
+      // Process CSS (Tailwind) - this must happen before building pages in production
+      // so that the compiled CSS is available when we remove the CDN script
       await this.processCss();
+      
+      // Build pages (this will remove CDN script in production)
+      await this.buildPages();
       
       // Generate SEO files
       await this.generateSeoFiles();
@@ -118,6 +119,20 @@ class SiteGenerator {
 
       // Process template
       let htmlContent = this.processTemplate(layoutContent, templateVars);
+
+      // Remove Tailwind CDN script in production BEFORE minification
+      if (this.mode === 'production') {
+        const beforeRemoval = htmlContent.includes('cdn.tailwindcss.com');
+        htmlContent = htmlContent.replace(
+          /<script\s+src=["']https:\/\/cdn\.tailwindcss\.com["'][^>]*><\/script>\s*/gi, 
+          ''
+        );
+        if (beforeRemoval && !htmlContent.includes('cdn.tailwindcss.com')) {
+          console.log(`🎨 Removed Tailwind CDN script from ${page.id}`);
+        } else if (beforeRemoval) {
+          console.warn(`⚠️  Failed to remove Tailwind CDN script from ${page.id}`);
+        }
+      }
 
       // Minify in production
       if (this.mode === 'production') {
@@ -413,17 +428,19 @@ class SiteGenerator {
     }
   }
 
+
+
   async processCss() {
     try {
       const { spawn } = require('child_process');
-      const inputCss = path.join(config.assetsDir, 'css', 'main.css');
-      const outputCss = path.join(this.outputDir, config.assetsDir, 'css', 'main.css');
+      const inputCss = path.join(config.assetsDir, 'css', 'app.css');
+      const outputCss = path.join(this.outputDir, config.assetsDir, 'css', 'app.css');
       
       // Check if input CSS exists
       try {
         await fs.access(inputCss);
       } catch {
-        console.log('🎨 No main.css found, skipping CSS processing...');
+        console.log('🎨 No app.css found, skipping CSS processing...');
         return;
       }
 
@@ -439,6 +456,9 @@ class SiteGenerator {
 
       if (this.mode === 'production') {
         tailwindArgs.push('--minify');
+        console.log('🎨 Processing CSS in production mode (minified)...');
+      } else {
+        console.log('🎨 Processing CSS in development mode...');
       }
 
       if (this.watch) {
@@ -455,11 +475,19 @@ class SiteGenerator {
         await new Promise((resolve, reject) => {
           tailwindProcess.on('close', (code) => {
             if (code === 0) {
-              console.log('🎨 CSS processed with Tailwind');
+              if (this.mode === 'production') {
+                console.log('🎨 CSS processed and minified with Tailwind (production ready)');
+              } else {
+                console.log('🎨 CSS processed with Tailwind');
+              }
               resolve();
             } else {
               reject(new Error(`Tailwind process exited with code ${code}`));
             }
+          });
+          
+          tailwindProcess.on('error', (error) => {
+            reject(new Error(`Failed to start Tailwind process: ${error.message}`));
           });
         });
       } else {
@@ -469,6 +497,7 @@ class SiteGenerator {
       }
     } catch (error) {
       console.error('❌ Failed to process CSS:', error.message);
+      throw error;
     }
   }
 

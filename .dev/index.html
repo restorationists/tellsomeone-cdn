@@ -16,18 +16,18 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tellsomeone.org.uk/">
-    <meta property="og:title" content="Tell Someone - You're Not AloneTellSomeone.org.uk">
+    <meta property="og:title" content="Tell Someone - You're Not Alone TellSomeone.org.uk">
     <meta property="og:description" content="A secure, encrypted platform for survivors to share their stories. Protected by the same technology as the International Criminal Court, stored under US First Amendment protection.">
-    <meta property="og:image" content="https://tellsomeone.org.uk/images/share_tellsomeone_org_uk.png">
+    <meta property="og:image" content="https://cdn.tellsomeone.org.uk/assets/images/share_tellsomeone_org_uk.png">
     <meta property="og:site_name" content="TellSomeone.org.uk">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://tellsomeone.org.uk/">
-    <meta property="twitter:title" content="Tell Someone - You're Not AloneTellSomeone.org.uk">
+    <meta property="twitter:title" content="Tell Someone - You're Not Alone TellSomeone.org.uk">
     <meta property="twitter:description" content="A secure, encrypted platform for survivors to share their stories. Protected by the same technology as the International Criminal Court, stored under US First Amendment protection.">
-    <meta property="twitter:image" content="https://tellsomeone.org.uk/images/share_tellsomeone_org_uk.png">
-    <meta property="twitter:site" content="@tellsomeone">
+    <meta property="twitter:image" content="https://cdn.tellsomeone.org.uk/assets/images/share_tellsomeone_org_uk.png">
+    <meta property="twitter:site" content="@Restorationist_">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://tellsomeone.org.uk/">
@@ -41,8 +41,18 @@
 
     <!-- External Scripts -->
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENJZQEW0CJ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ENJZQEW0CJ');
+    </script>
+
     <!-- Page-specific CSS -->
         <link href="/assets/css/landing.css" rel="stylesheet">
 
@@ -92,54 +102,81 @@
     </script>
 </head>
 <body class="bg-black text-white">
-    <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 w-full bg-black/95 backdrop-blur-md border-b-2 border-neutral-900">
+    <!-- HEADER -->
+<header class="sticky top-0 z-50 w-full bg-black/95 backdrop-blur-md border-b-2 border-neutral-900">
         <nav class="w-full px-4 md:px-8 py-5">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <a href="/">
-                        <img src="/assets/images/logo.png" alt="Tell Someone" class="h-8 w-auto md:h-12">
-                    </a>
-                </div>
-                
-                <!-- Navigation -->
-                <div class="hidden md:flex items-center gap-1">
-                    <a href="/history/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:heart"></span>
-                        You're Not Alone
-                    </a>
-                    <a href="/inquiries/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:magnify"></span>
-                        The Inquiries
-                    </a>
-                    <a href="/how-this-works/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:information"></span>
-                        How This Works
-                    </a>
-                    <a href="/safety/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:shield-check"></span>
-                        Your Safety
-                    </a>
-                    <a href="/icc/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:justice"></span>
-                        Get Involved
-                    </a>
-                </div>
-                
-                <!-- CTA Button -->
-                <a href="https://help.tellsomeone.org.uk" class="bg-primary text-white px-6 py-3 font-bold hover:opacity-90 transition flex items-center gap-2">
-                    <span class="iconify text-xl" data-icon="mdi:alert-circle"></span>
-                    REPORT THEM
+            <!-- Logo -->
+            <a href="/" class="flex items-center">
+                <img src="/assets/images/logo.png" alt="Tell Someone" class="h-8 w-auto xl:h-12">
+            </a>
+
+            <!-- Desktop navigation (>=1180px) -->
+            <div class="hidden min-[1180px]:flex items-center gap-1">
+                <a href="/history/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:heart"></span> You're Not Alone
                 </a>
-                
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden">
-                    <span class="iconify text-2xl" data-icon="mdi:menu"></span>
-                </button>
+                <a href="/inquiries/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:magnify"></span> The Inquiries
+                </a>
+                <a href="/how-this-works/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:information"></span> How This Works
+                </a>
+                <a href="/safety/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:shield-check"></span> Your Safety
+                </a>
+                <a href="/get-involved/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:justice"></span> Get Involved
+                </a>
+            </div>
+
+            <!-- Desktop CTA (>=1180px) -->
+            <a href="https://help.tellsomeone.org.uk"
+                class="hidden min-[1180px]:inline-flex bg-primary text-white px-6 py-3 font-bold hover:opacity-90 transition items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:alert-circle"></span>
+                REPORT THEM
+            </a>
+
+            <!-- Mobile hamburger (<1180px) -->
+            <button id="menuBtn"
+                    class="inline-flex min-[1180px]:hidden items-center justify-center p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                    aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+                <span class="iconify text-3xl" data-icon="mdi:menu"></span>
+                <span class="sr-only">Menu</span>
+            </button>
             </div>
         </nav>
+
+        <!-- Mobile menu (collapsible, <1180px) -->
+        <div id="mobileMenu"
+            class="min-[1180px]:hidden hidden border-t border-neutral-800 bg-black/98 backdrop-blur-md">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+            <a href="/history/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:heart"></span> You're Not Alone
+            </a>
+            <a href="/inquiries/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:magnify"></span> The Inquiries
+            </a>
+            <a href="/how-this-works/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:information"></span> How This Works
+            </a>
+            <a href="/safety/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:shield-check"></span> Your Safety
+            </a>
+            <a href="/get-involved/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:justice"></span> Get Involved
+            </a>
+            <a href="https://help.tellsomeone.org.uk"
+                class="flex items-center justify-center gap-2 px-4 py-3 font-bold uppercase bg-primary hover:opacity-90 text-white">
+                <span class="iconify text-xl" data-icon="mdi:alert-circle"></span> REPORT THEM
+            </a>
+            </div>
+        </div>
     </header>
+
+    <!-- Page overlay for mobile menu -->
+    <div id="menuOverlay" class="fixed inset-0 z-40 hidden min-[1180px]:hidden bg-black/60"></div>
+
 
         <!-- Hero Section -->
     <section class="relative w-full min-h-screen hero-bg hero-gradient flex flex-col items-center justify-center">
@@ -188,11 +225,11 @@
             
             <!-- CTA Buttons -->
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="/emergency" class="w-full md:w-auto bg-primary text-white px-10 py-5 text-xl font-bold hover:opacity-90 transition flex items-center justify-center gap-2">
+                <a href="/urgent/" class="w-full md:w-auto bg-primary text-white px-10 py-5 text-xl font-bold hover:opacity-90 transition flex items-center justify-center gap-2">
                     <span class="iconify text-2xl" data-icon="mdi:alert"></span>
                     SOMEONE'S HURTING ME
                 </a>
-                <a href="/guide/adults" class="w-full md:w-auto bg-white text-black px-10 py-5 text-xl font-bold hover:bg-neutral-100 transition flex items-center justify-center gap-2">
+                <a href="/guide/" class="w-full md:w-auto bg-white text-black px-10 py-5 text-xl font-bold hover:bg-neutral-100 transition flex items-center justify-center gap-2">
                     <span class="iconify text-2xl" data-icon="mdi:microphone"></span>
                     RECORD MY STORY
                 </a>
@@ -201,34 +238,267 @@
     </section>
 
 <!-- Content Sections -->
-    <main class="w-full">
-        <!-- Section 1: You're Not Alone -->
-        <section class="w-full px-4 md:px-8 py-16 md:py-24 border-b border-neutral-700">
-            <div class="w-full">
-                <div class="flex items-center mb-8">
-                    <span class="iconify text-primary text-4xl mr-4" data-icon="mdi:account-group"></span>
-                    <h2 class="text-3xl md:text-4xl font-light">You're Not Alone</h2>
-                </div>
-                <p class="text-lg font-normal text-neutral-100 leading-relaxed mb-6">
-                    Thousands of survivors have already come forward. Your voice matters, and your story deserves to be heard. 
-                    This isn't just about you—it's about all of us, standing together, refusing to be silenced any longer.
-                </p>
-                <p class="text-lg font-normal text-neutral-100 leading-relaxed">
-                    Every report helps build the truth. Every voice adds strength to our collective call for justice. 
-                    You don't have to carry this alone anymore.
+<main class="w-full">
+    <!-- Section 1: The Numbers They Can't Hide -->
+    <section class="w-full bg-gradient-to-b from-black to-neutral-900 py-20 md:py-32">
+        <div class="w-full px-4 md:px-8">
+            <!-- Stark numbers grid - no fluff -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-semibold uppercase tracking-wider mb-8 text-white">
+                    IS IT 19,000? OR OVER 500,000?
+                </h2>
+                <p class="text-xl md:text-2xl text-neutral-300 max-w-4xl mx-auto">
+                    How many little girls have to be drugged, groomed, raped, and murdered in Britain before it's no longer "racist" to mention it?
                 </p>
             </div>
-        </section>
-
-        <!-- Section 2: How Your Report Is Handled -->
-        <section class="w-full px-4 md:px-8 py-16 md:py-24 border-b border-neutral-700 overflow-x-auto">
-            <div class="w-full">
-                <div class="flex items-center mb-12">
-                    <span class="iconify text-primary text-4xl mr-4" data-icon="mdi:timeline-text"></span>
-                    <h2 class="text-3xl md:text-4xl font-light">What Happens After You Tell Us</h2>
+            
+            <!-- Brutal statistics layout -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                <div class="text-center">
+                    <div class="text-5xl md:text-7xl font-medium text-primary mb-4">5,000,000</div>
+                    <div class="text-sm md:text-base text-neutral-200 uppercase tracking-wide">RAPES SINCE 2002</div>
+                    <div class="text-xs text-neutral-500 mt-2">POLICE DATA</div>
                 </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-7xl font-medium text-primary mb-4">500,000</div>
+                    <div class="text-sm md:text-base text-neutral-200 uppercase tracking-wide">CHILDREN ABUSED ANNUALLY</div>
+                    <div class="text-xs text-neutral-500 mt-2">GOVERNMENT ESTIMATE</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-7xl font-medium text-primary mb-4">452%</div>
+                    <div class="text-sm md:text-base text-neutral-200 uppercase tracking-wide">INCREASE IN RAPE</div>
+                    <div class="text-xs text-neutral-500 mt-2">OFFICIAL COUNT</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl md:text-7xl font-medium text-primary mb-4">597</div>
+                    <div class="text-sm md:text-base text-neutral-200 uppercase tracking-wide">OFFENDER ARRESTS</div>
+                    <div class="text-xs text-neutral-500 mt-2">30+ CITIES</div>
+                </div>
+            </div>
+            
+            <div class="w-full h-96 md:h-[500px] bg-neutral-900 p-4 border border-neutral-700 rounded-lg mb-8">
+                <canvas id="fullChart"></canvas>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-2xl md:text-3xl font-light text-white max-w-4xl w-full mx-auto">
+                    This happened because your career was more important than working class children being raped. It's <span class="font-medium">still happening.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Your Voice Matters -->
+    <section class="w-full bg-black py-20 md:py-32 border-y border-neutral-800">
+        <div class="w-full px-4 md:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+                <div class="order-2 md:order-1">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-wider mb-8 text-white leading-tight">
+                        EVERY VOICE<br/>
+                        BREAKS THE<br/>
+                        <span class="text-primary">SILENCE</span>
+                    </h2>
+                    <p class="text-xl text-neutral-200 leading-relaxed mb-8">
+                        This has happened in <span class="text-white font-semibold">over 30 cities</span> we know of so far. The Lowe Inquiry believes it involves <a target="_blank" class="text-primary font-medium" href="https://x.com/RupertLowe10/status/1960222886737695063">at least 85 local authorities.</a>
+                    </p>
+                    <p class="text-lg text-neutral-300 leading-relaxed">
+                        Children don't report it because they're frightened. Adults don't report it because they are <span class="text-white font-semibold">ignored</span>.
+                    </p>
+                </div>
+                <div class="order-1 md:order-2">
+                    <div class="w-full h-96 md:h-[500px] bg-neutral-900 border border-neutral-700 rounded-lg overflow-hidden">
+                        <div id="homepageMap" 
+                            data-uk-cities-map
+                            data-marker-color="#e23e9a"
+                            data-marker-radius="6"
+                            data-show-attribution="true"
+                            data-zoom-control="false"
+                            class="w-full h-full">
+                        </div>
+                    </div>
+                    <p class="text-sm text-neutral-400 mt-2 text-center">
+                        Each marker represents a city with prosecutions and/or news reports.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: The Cover-Up Cracks -->
+    <section class="w-full bg-gradient-to-b from-neutral-900 to-black py-20 md:py-32">
+        <div class="w-full px-4 md:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+                <div class="w-full h-96 md:h-[500px] bg-neutral-800 rounded-lg flex items-center justify-center p-4">
+                    <a target="_blank" href="https://www.judiciary.uk/wp-content/uploads/JCO/Documents/Judgments/sentencing-remarks-r-v-dogar-others.pdf">
+                        <img src="/assets/images/judge_remarks.png" 
+                            class="max-w-full max-h-full object-contain hover:opacity-90 transition-opacity" 
+                            alt="Judge sentencing remarks R
+-V-
+ AKHTAR DOGAR, ANJUM DOGAR, KAMAR JAMIL,
+MOHAMMED KARRAR, BASSAM KARRAR
+CENTRAL CRIMINAL COURT
+27 JUNE 2013" />
+                    </a>
+                </div>
+                <div>
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-wider mb-8 text-white leading-tight">
+                        30 YEARS OF<br/>
+                        IGNORING IT<br/>
+                        IS <span class="text-primary">OVER</span>
+                    </h2>
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-primary pl-6">
+                            <div class="text-lg font-bold text-white">1995</div>
+                            <div class="text-base text-neutral-300">Police and social workers knew but did nothing</div>
+                        </div>
+
+                        <div class="border-l-4 border-primary pl-6">
+                            <div class="text-lg font-bold text-white">2010</div>
+                            <div class="text-base text-neutral-300">1,400 working class girls raped in just one town</div>
+                        </div>
+
+                        <div class="border-l-4 border-primary pl-6">
+                            <div class="text-lg font-bold text-white">2019</div>
+                            <div class="text-base text-neutral-300">Local authorities record 19,000 victims of sexual crime</div>
+                        </div>
+                    </div>
+                    <p class="text-xl text-neutral-200 mt-8">
+                        Have nothing to do with the fruitless deeds of darkness, but rather expose them. - Ephesians 5:11
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Direct Challenge to System Abuse -->
+<section class="w-full bg-black py-20 md:py-32 border-t-4 border-red-800">
+    <div class="w-full px-4 md:px-8">
+        <div class="max-w-6xl mx-auto">
+            
+            <!-- Main accusation -->
+            <div class="text-center mb-16">
+                <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tight mb-8 text-white leading-tight">
+                    CHILDREN ARE NOT<br/>
+                    <span class="text-red-500">"PROSTITUTES"</span>
+                </h2>
+                <h3 class="text-3xl md:text-4xl font-bold uppercase tracking-wide text-white mb-12">
+                    THEY ARE NOT <span class="text-red-500">"SLAGS"</span>
+                </h3>
+            </div>
+
+            <!-- Direct quotes from the system -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
                 
-                <!-- Timeline Process -->
+                <!-- Quote 1 - Defence Barrister -->
+                <div class="bg-neutral-700 bg-opacity-30 p-8 rounded-lg">
+                    <div class="mb-6">
+                        <span class="bg-red-600 text-white px-3 py-1 rounded text-sm font-bold uppercase">Defence Barrister</span>
+                    </div>
+                    <blockquote class="text-lg text-neutral-100 mb-6 leading-relaxed">
+                        "It's better to be a victim than a slag. Once you are a victim who has been groomed you no longer have to take any responsibility for anything that you did."
+                    </blockquote>
+                    <footer class="text-neutral-300 text-sm">
+                        <strong><a target="_blank" href="https://millenniumchambers.com/michael-magarian-kc/">Michael Magarian KC</a></strong><br/>
+                        Oxford Crown Court, 2015<br/>
+                        Speaking about children aged 13-16
+                    </footer>
+                </div>
+
+                <!-- Quote 2 - Another Defence Lawyer -->
+                <div class="bg-neutral-700 bg-opacity-30 p-8 rounded-lg">
+                    <div class="mb-6">
+                        <span class="bg-red-600 text-white px-3 py-1 rounded text-sm font-bold uppercase">Defence Advocate</span>
+                    </div>
+                    <blockquote class="text-lg text-neutral-100 mb-6 leading-relaxed">
+                        The children "might be enjoying all the attention from police and social services."
+                    </blockquote>
+                    <footer class="text-neutral-300 text-sm">
+                        <strong><a target="_blank" href="https://15nbs.com/portfolio/clare-dowse/">Clare Dowse</a></strong><br/>
+                        Oxford Crown Court, 2015<br/>
+                        Suggesting child victims enjoyed the "attention"
+                    </footer>
+                </div>
+            </div>
+
+            <!-- Central message -->
+            <div class="bg-white text-black p-12 md:p-16 rounded-lg mb-16 text-center">
+                <h3 class="text-4xl md:text-5xl font-black mb-8 uppercase tracking-wide">
+                    TO EVERY POLITICIAN, COUNCILLOR, POLICE OFFICER, SOCIAL WORKER 
+                    AND LAWYER WHO SAID THIS:
+                </h3>
+                <p class="text-2xl md:text-3xl font-bold mb-8 leading-tight">
+                    YOU ARE THE CRIMINALS
+                </p>
+                <p class="text-xl leading-relaxed max-w-4xl mx-auto">
+                    You took children who were raped, trafficked, and tortured—and you called them prostitutes. You blamed them for their own abuse. You are not officers of justice. You are accessories to child rape.
+                </p>
+            </div>
+
+            <!-- The reality -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-neutral-900 p-8 text-center rounded-lg">
+                    <h4 class="text-2xl font-bold text-white mb-4">CHILDREN AGED</h4>
+                    <div class="text-6xl font-medium text-red-500 mb-4">10-16</div>
+                    <p class="text-neutral-200 text-lg">Called "prostitutes" by police and lawyers</p>
+                </div>
+                <div class="bg-neutral-900 p-8 text-center rounded-lg">
+                    <h4 class="text-2xl font-bold text-white mb-4">RAPED BY</h4>
+                    <div class="text-6xl font-medium text-red-500 mb-4">100s</div>
+                    <p class="text-neutral-200 text-lg">Of men while authorities watched</p>
+                </div>
+                <div class="bg-neutral-900 p-8 text-center rounded-lg">
+                    <h4 class="text-2xl font-bold text-white mb-4">BLAMED FOR</h4>
+                    <div class="text-4xl font-medium text-red-500 mb-4">EVERYTHING</div>
+                    <p class="text-neutral-200 text-lg">By the people meant to protect them</p>
+                </div>
+            </div>
+
+            <!-- The truth about how authorities saw these children -->
+            <div class="bg-black bg-opacity-20 p-12 md:p-16 rounded-lg mb-16">
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-8 text-center uppercase tracking-wide">
+                    HOW AUTHORITIES SAW THESE CHILDREN
+                </h3>
+                <blockquote class="text-2xl md:text-3xl text-neutral-100 text-center mb-8 leading-relaxed">
+                    "They thought they were dirty little slags and they deserved everything that they got"
+                </blockquote>
+                <footer class="text-neutral-300 text-center text-lg">
+                    — <a target="_blank" href="https://www.youtube.com/watch?v=9FNXXCRvAQ0">Channel 4 News investigation, August 2014</a><br/>
+                    Explaining why authorities didn't care about 1,400 child victims in Rotherham
+                </footer>
+            </div>
+
+            <!-- Survivor testimony -->
+            <div class="bg-black p-12 md:p-16 rounded-lg">
+                <h3 class="text-3xl md:text-4xl font-black text-white mb-8 text-center uppercase tracking-wide">
+                    WHAT THESE CHILDREN ENDURED
+                </h3>
+                <blockquote class="text-xl text-neutral-100 mb-6 leading-relaxed max-w-4xl mx-auto">
+                    "I was called a 'white slag' and 'white c***' as they beat me. They made it clear that because I was a non-Muslim, and not a virgin, and because I didn't dress 'modestly', that they believed I deserved to be 'punished'. They said I had to 'obey' or be beaten."
+                </blockquote>
+                <footer class="text-neutral-400 text-center">
+                    — <a target="_blank" href="https://www.independent.co.uk/voices/rotherham-grooming-gang-sexual-abuse-muslim-islamist-racism-white-girls-religious-extremism-terrorism-a8261831.html">Ella Hill, Rotherham grooming gang survivor</a><br/>
+                    <em>The Independent</em>, March 2018
+                </footer>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Section 4: Process Timeline - Keep existing but styled more dramatically -->
+    <section class="w-full bg-black py-20 md:py-32 border-y border-neutral-800">
+        <div class="w-full px-4 md:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-wider mb-8 text-white">
+                    WE'RE ALL GOING TO LISTEN
+                </h2>
+                <p class="text-xl text-neutral-300 max-w-3xl mx-auto">
+                    Military-grade security. Legal protection. Justice process.
+                </p>
+            </div>
+            
+            <!-- Timeline Process -->
+            <div class="overflow-x-auto">
                 <div class="min-w-[1200px] relative">
                     <!-- Connector Line -->
                     <div class="absolute top-16 left-0 right-0 timeline-connector"></div>
@@ -236,13 +506,12 @@
                     <!-- Steps -->
                     <div class="grid grid-cols-7 gap-4 relative">
                         <!-- Step 1 -->
-                        <!-- Step 1 -->
                         <div class="text-center">
                             <div class="bg-slate-600 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span class="iconify text-white text-5xl" data-icon="mdi:send"></span>
                             </div>
-                            <h3 class="font-bold text-sm mb-2">1. You Send</h3>
-                            <p class="text-sm text-neutral-200">Your report is encrypted and stored on our secure servers</p>
+                            <h3 class="font-bold text-sm mb-2 text-white">YOU SEND</h3>
+                            <p class="text-sm text-neutral-200">Encrypted instantly</p>
                         </div>
                         
                         <!-- Step 2 -->
@@ -250,8 +519,8 @@
                             <div class="bg-rose-600 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span class="iconify text-white text-5xl" data-icon="mdi:lifebuoy"></span>
                             </div>
-                            <h3 class="font-bold text-sm mb-2">2. Emergency Triage</h3>
-                            <p class="text-sm text-neutral-200">Urgent cases immediately referred to trusted charities</p>
+                            <h3 class="font-bold text-sm mb-2 text-white">EMERGENCY TRIAGE</h3>
+                            <p class="text-sm text-neutral-200">Urgent cases fast-tracked</p>
                         </div>
                         
                         <!-- Step 3 -->
@@ -259,8 +528,8 @@
                             <div class="bg-sky-600 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span class="iconify text-white text-5xl" data-icon="mdi:robot"></span>
                             </div>
-                            <h3 class="font-bold text-sm mb-2">3. Computer Review</h3>
-                            <p class="text-sm text-neutral-200">Private AI scans to protect reviewers and flag priorities</p>
+                            <h3 class="font-bold text-sm mb-2 text-white">AI REVIEW</h3>
+                            <p class="text-sm text-neutral-200">Protects human reviewers</p>
                         </div>
                         
                         <!-- Step 4 -->
@@ -268,8 +537,8 @@
                             <div class="bg-violet-600 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span class="iconify text-white text-5xl" data-icon="mdi:scale-balance"></span>
                             </div>
-                            <h3 class="font-bold text-sm mb-2">4. Legal Review</h3>
-                            <p class="text-sm text-neutral-200">Barristers check for serious crimes and safeguarding</p>
+                            <h3 class="font-bold text-sm mb-2 text-white">LEGAL REVIEW</h3>
+                            <p class="text-sm text-neutral-200">Barrister assessment</p>
                         </div>
                         
                         <!-- Step 5 -->
@@ -277,8 +546,8 @@
                             <div class="bg-teal-600 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span class="iconify text-white text-5xl" data-icon="mdi:clipboard-check"></span>
                             </div>
-                            <h3 class="font-bold text-sm mb-2">5. Inquiry Access</h3>
-                            <p class="text-sm text-neutral-200">Case officers review reports for the inquiry</p>
+                            <h3 class="font-bold text-sm mb-2 text-white">INQUIRY ACCESS</h3>
+                            <p class="text-sm text-neutral-200">Independent investigation</p>
                         </div>
                         
                         <!-- Step 6 -->
@@ -286,8 +555,8 @@
                             <div class="bg-amber-600 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span class="iconify text-white text-5xl" data-icon="mdi:share"></span>
                             </div>
-                            <h3 class="font-bold text-sm mb-2">6. Redacted Sharing</h3>
-                            <p class="text-sm text-neutral-200">With your permission, redacted testimony shared with partners</p>
+                            <h3 class="font-bold text-sm mb-2 text-white">CAREFUL SHARING</h3>
+                            <p class="text-sm text-neutral-200">Your permission only</p>
                         </div>
                         
                         <!-- Step 7 -->
@@ -295,70 +564,43 @@
                             <div class="bg-emerald-600 w-32 h-32 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <span class="iconify text-white text-5xl" data-icon="mdi:lock"></span>
                             </div>
-                            <h3 class="font-bold text-sm mb-2">7. Protected Always</h3>
-                            <p class="text-sm text-neutral-200">Never shared without consent unless you're in danger</p>
+                            <h3 class="font-bold text-sm mb-2 text-white">ALWAYS PROTECTED</h3>
+                            <p class="text-sm text-neutral-200">Never without consent</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Section 3: How This Works -->
-        <section class="w-full px-4 md:px-8 py-16 md:py-24 border-b border-neutral-700">
-            <div class="w-full">
-                <div class="flex items-center mb-8">
-                    <span class="iconify text-primary text-4xl mr-4" data-icon="mdi:shield-check"></span>
-                    <h2 class="text-3xl md:text-4xl font-light">How This Works</h2>
-                </div>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="space-y-4">
-                        <h3 class="text-xl font-medium text-primary">Your Safety First</h3>
-                        <p class="text-neutral-100 font-normal">
-                            Everything you share is encrypted from the moment you type it. Your report is protected by the same 
-                            technology used by international courts and human rights organisations worldwide.
-                        </p>
-                    </div>
-                    <div class="space-y-4">
-                        <h3 class="text-xl font-medium text-primary">Legal Protection</h3>
-                        <p class="text-neutral-100 font-normal">
-                            Overseen by barristers and protected under whistleblowing laws. Your identity is kept confidential 
-                            unless you choose otherwise. We handle your information with the highest legal standards.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Section 4: Get Support -->
-        <section class="w-full px-4 md:px-8 py-16 md:py-24">
-            <div class="w-full">
-                <div class="flex items-center mb-8">
-                    <span class="iconify text-primary text-4xl mr-4" data-icon="mdi:lifebuoy"></span>
-                    <h2 class="text-3xl md:text-4xl font-light">Get Support</h2>
-                </div>
-                <p class="text-lg font-normal text-neutral-100 mb-8">
-                    If you need immediate help or someone to talk to, these organisations are here for you:
-                </p>
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="border border-neutral-700 p-6 hover:border-primary transition">
-                        <span class="iconify text-primary text-3xl mb-4" data-icon="mdi:phone"></span>
-                        <h3 class="text-xl font-medium mb-2">Emergency Help</h3>
-                        <p class="text-neutral-100 font-normal">If you're in immediate danger, call 999</p>
-                    </div>
-                    <div class="border border-neutral-700 p-6 hover:border-primary transition">
-                        <span class="iconify text-primary text-3xl mb-4" data-icon="mdi:chat"></span>
-                        <h3 class="text-xl font-medium mb-2">Talk to Someone</h3>
-                        <p class="text-neutral-100 font-normal">Confidential support available 24/7</p>
-                    </div>
-                    <div class="border border-neutral-700 p-6 hover:border-primary transition">
-                        <span class="iconify text-primary text-3xl mb-4" data-icon="mdi:heart"></span>
-                        <h3 class="text-xl font-medium mb-2">Counselling</h3>
-                        <p class="text-neutral-100 font-normal">Professional trauma-informed care</p>
-                    </div>
-                </div>
+    <!-- Final Message to Government -->
+    <section class="w-full bg-gradient-to-b from-red-900 to-black py-20 md:py-32">
+        <div class="w-full px-4 md:px-8 text-center">
+            <h2 class="text-4xl md:text-6xl font-black uppercase tracking-wider mb-8 text-white leading-tight">
+                ENOUGH IS ENOUGH. <br /> NO MORE STALLING.
+            </h2>
+            <p class="text-xl md:text-2xl text-neutral-200 mb-8 max-w-4xl mx-auto">
+                This goes back to 1955. The cover-ups span four decades.
+            </p>
+            <p class="text-2xl md:text-3xl font-bold text-white mb-12 max-w-5xl mx-auto">
+                This has been an emergency for
+                <span class="font-bold">20 YEARS.</span>
+            </p>
+            
+            <div class="w-full h-96 md:h-[500px] bg-neutral-800 flex items-center justify-center mb-16 overflow-hidden rounded-lg">
+                <img src="/assets/images/newspaper_headlines.png" 
+                    alt="Newspaper headlines documenting decades of institutional failure and cover-ups" 
+                    class="w-full h-full object-cover object-center"
+                    loading="lazy">
             </div>
-        </section>
-    </main>
+            
+            <p class="text-xl text-neutral-300 max-w-4xl mx-auto">
+                Seventy years of documented cases. Decades of institutional failure. Thousands of destroyed lives. The time for more reports and recommendations is over.
+            </p>
+        </div>
+    </section>
+</main>
     
     <!-- Footer -->
     <footer class="w-full bg-neutral-900 border-t border-neutral-700 px-4 md:px-8 py-12">
@@ -428,6 +670,9 @@
         </div>
     </footer>
 <!-- Page-specific JavaScript -->
-    <script src="/assets/js/front_hero.js"></script>
+    <script src="/assets/js/front.hero.js"></script>
+    <script src="/assets/js/rape_statistics.js"></script>
+    <script src="/assets/js/cities_map.js"></script>
+<script src="/assets/js/global.js"></script>"
 </body>
 </html>

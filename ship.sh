@@ -5,7 +5,10 @@ set -euo pipefail
 # Load environment variables from .env file
 if [[ -f ".env" ]]; then
     echo "📋 Loading environment variables from .env..."
-    export $(grep -v '^#' .env | xargs)
+    # Load .env and remove quotes
+    set -a
+    source <(sed 's/"//g' .env)
+    set +a
 else
     echo "❌ .env file not found!"
     exit 1
@@ -45,22 +48,15 @@ function push_repo() {
         exit 1
     fi
     
-    # Store current directory
-    local original_dir=$(pwd)
-    
-    # Check if this is a git repository
+    # Check if this is a git repository (git should be in root)
     if [[ ! -d ".git" ]]; then
-        echo "❌ '$DIST_DIR' is not a git repository!"
-        cd "$original_dir"
+        echo "❌ Current directory is not a git repository!"
         exit 1
     fi
     
-    git add .
+    git add "$DIST_DIR"
     git commit -m "$COMMIT_MSG" || echo "⚠️  Nothing to commit."
     git push origin HEAD
-    
-    # Return to original directory
-    cd "$original_dir"
     echo "✅ Git push complete."
 }
 
@@ -74,14 +70,21 @@ function upload_to_cdn() {
 
     # Upload files to BunnyCDN
     echo "🔍 Debug info:"
-    echo "  Region: $TS_BUNNY_REGION"
-    echo "  Bucket: $TS_BUNNY_BUCKET" 
-    echo "  Token: ${TS_BUNNY_BUCKET_TOKEN:0:10}..."
+    echo "  Region: '$TS_BUNNY_REGION'"
+    echo "  Bucket: '$TS_BUNNY_BUCKET'" 
+    echo "  Token: '${TS_BUNNY_BUCKET_TOKEN:0:10}...'"
+    echo "  Token length: ${#TS_BUNNY_BUCKET_TOKEN}"
     echo ""
     
     find "$DIST_DIR" -type f ! -path "$DIST_DIR/.git/*" ! -name ".git" | while read -r file; do
         relative_path="${file#$DIST_DIR/}"
-        remote_url="https://${TS_BUNNY_REGION}.bunnycdn.com/${TS_BUNNY_BUCKET}/${relative_path}"
+        
+        # Handle primary region (DE/Frankfurt) vs regional endpoints
+        if [[ "$TS_BUNNY_REGION" == "de" || "$TS_BUNNY_REGION" == "primary" ]]; then
+            remote_url="https://storage.bunnycdn.com/${TS_BUNNY_BUCKET}/${relative_path}"
+        else
+            remote_url="https://${TS_BUNNY_REGION}.storage.bunnycdn.com/${TS_BUNNY_BUCKET}/${relative_path}"
+        fi
         echo "🟢 Uploading: $relative_path → $remote_url"
 
         # Try upload with verbose output on failure
@@ -89,7 +92,6 @@ function upload_to_cdn() {
             --url "$remote_url" \
             --header "AccessKey: $TS_BUNNY_BUCKET_TOKEN" \
             --header "Content-Type: application/octet-stream" \
-            --header "accept: application/json" \
             --data-binary @"$file"; then
             echo "❌ Failed to upload: $relative_path"
             echo "🔍 Retrying with verbose output..."
@@ -97,7 +99,6 @@ function upload_to_cdn() {
                 --url "$remote_url" \
                 --header "AccessKey: $TS_BUNNY_BUCKET_TOKEN" \
                 --header "Content-Type: application/octet-stream" \
-                --header "accept: application/json" \
                 --data-binary @"$file"
             exit 1
         fi
@@ -146,13 +147,13 @@ function usage() {
 # Main execution
 case "${1:-both}" in
     repo) 
-        push_repo 
+        npm run build && push_repo 
         ;;
     cdn) 
-        upload_to_cdn 
+        npm run build &&upload_to_cdn 
         ;;
     both) 
-        push_repo && upload_to_cdn 
+        npm run build && push_repo && upload_to_cdn 
         ;;
     help|--help|-h)
         usage

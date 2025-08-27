@@ -16,18 +16,18 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tellsomeone.org.uk/emergency/child/">
-    <meta property="og:title" content="Emergency Help for ChildrenTellSomeone.org.uk">
+    <meta property="og:title" content="Emergency Help for Children TellSomeone.org.uk">
     <meta property="og:description" content="Immediate help and support for children who are being hurt or are in danger. Safe, confidential support available 24/7.">
-    <meta property="og:image" content="https://tellsomeone.org.uk/images/share_tellsomeone_org_uk.png">
+    <meta property="og:image" content="https://cdn.tellsomeone.org.uk/assets/images/share_tellsomeone_org_uk.png">
     <meta property="og:site_name" content="TellSomeone.org.uk">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://tellsomeone.org.uk/emergency/child/">
-    <meta property="twitter:title" content="Emergency Help for ChildrenTellSomeone.org.uk">
+    <meta property="twitter:title" content="Emergency Help for Children TellSomeone.org.uk">
     <meta property="twitter:description" content="Immediate help and support for children who are being hurt or are in danger. Safe, confidential support available 24/7.">
-    <meta property="twitter:image" content="https://tellsomeone.org.uk/images/share_tellsomeone_org_uk.png">
-    <meta property="twitter:site" content="@tellsomeone">
+    <meta property="twitter:image" content="https://cdn.tellsomeone.org.uk/assets/images/share_tellsomeone_org_uk.png">
+    <meta property="twitter:site" content="@Restorationist_">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://tellsomeone.org.uk/emergency/child/">
@@ -41,8 +41,18 @@
 
     <!-- External Scripts -->
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENJZQEW0CJ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ENJZQEW0CJ');
+    </script>
+
     <!-- Page-specific CSS -->
     
 
@@ -92,57 +102,136 @@
     </script>
 </head>
 <body class="bg-black text-white">
-    <!-- Sticky Header -->
-    <header class="sticky top-0 z-50 w-full bg-black/95 backdrop-blur-md border-b-2 border-neutral-900">
+    <!-- HEADER -->
+<header class="sticky top-0 z-50 w-full bg-black/95 backdrop-blur-md border-b-2 border-neutral-900">
         <nav class="w-full px-4 md:px-8 py-5">
             <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <a href="/">
-                        <img src="/assets/images/logo.png" alt="Tell Someone" class="h-8 w-auto md:h-12">
-                    </a>
-                </div>
-                
-                <!-- Navigation -->
-                <div class="hidden md:flex items-center gap-1">
-                    <a href="/history/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:heart"></span>
-                        You're Not Alone
-                    </a>
-                    <a href="/inquiries/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:magnify"></span>
-                        The Inquiries
-                    </a>
-                    <a href="/how-this-works/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:information"></span>
-                        How This Works
-                    </a>
-                    <a href="/safety/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:shield-check"></span>
-                        Your Safety
-                    </a>
-                    <a href="/icc/" class="nav-item-hover px-6 py-4 text-lg font-bold uppercase border border-neutral-800 flex items-center gap-2 bg-neutral-900 text-white hover:bg-neutral-800 ">
-                        <span class="iconify nav-icon text-xl" data-icon="mdi:justice"></span>
-                        Get Involved
-                    </a>
-                </div>
-                
-                <!-- CTA Button -->
-                <a href="https://help.tellsomeone.org.uk" class="bg-primary text-white px-6 py-3 font-bold hover:opacity-90 transition flex items-center gap-2">
-                    <span class="iconify text-xl" data-icon="mdi:alert-circle"></span>
-                    REPORT THEM
+            <!-- Logo -->
+            <a href="/" class="flex items-center">
+                <img src="/assets/images/logo.png" alt="Tell Someone" class="h-8 w-auto xl:h-12">
+            </a>
+
+            <!-- Desktop navigation (>=1180px) -->
+            <div class="hidden min-[1180px]:flex items-center gap-1">
+                <a href="/history/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:heart"></span> You're Not Alone
                 </a>
-                
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden">
-                    <span class="iconify text-2xl" data-icon="mdi:menu"></span>
-                </button>
+                <a href="/inquiries/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:magnify"></span> The Inquiries
+                </a>
+                <a href="/how-this-works/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:information"></span> How This Works
+                </a>
+                <a href="/safety/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:shield-check"></span> Your Safety
+                </a>
+                <a href="/get-involved/" class="px-5 py-3 text-base xl:px-6 xl:py-4 xl:text-lg font-bold uppercase border border-neutral-800 opacity-90 : bg-neutral-900 text-white hover:bg-neutral-800  flex items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:justice"></span> Get Involved
+                </a>
+            </div>
+
+            <!-- Desktop CTA (>=1180px) -->
+            <a href="https://help.tellsomeone.org.uk"
+                class="hidden min-[1180px]:inline-flex bg-primary text-white px-6 py-3 font-bold hover:opacity-90 transition items-center gap-2">
+                <span class="iconify text-xl" data-icon="mdi:alert-circle"></span>
+                REPORT THEM
+            </a>
+
+            <!-- Mobile hamburger (<1180px) -->
+            <button id="menuBtn"
+                    class="inline-flex min-[1180px]:hidden items-center justify-center p-2 rounded-sm focus:outline-none focus:ring-2 focus:ring-primary/60"
+                    aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+                <span class="iconify text-3xl" data-icon="mdi:menu"></span>
+                <span class="sr-only">Menu</span>
+            </button>
             </div>
         </nav>
+
+        <!-- Mobile menu (collapsible, <1180px) -->
+        <div id="mobileMenu"
+            class="min-[1180px]:hidden hidden border-t border-neutral-800 bg-black/98 backdrop-blur-md">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+            <a href="/history/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:heart"></span> You're Not Alone
+            </a>
+            <a href="/inquiries/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:magnify"></span> The Inquiries
+            </a>
+            <a href="/how-this-works/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:information"></span> How This Works
+            </a>
+            <a href="/safety/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:shield-check"></span> Your Safety
+            </a>
+            <a href="/get-involved/" class="flex items-center gap-2 px-4 py-3 text-base font-semibold uppercase opacity-90 : bg-neutral-900 hover:bg-neutral-800  border border-neutral-800">
+                <span class="iconify text-xl" data-icon="mdi:justice"></span> Get Involved
+            </a>
+            <a href="https://help.tellsomeone.org.uk"
+                class="flex items-center justify-center gap-2 px-4 py-3 font-bold uppercase bg-primary hover:opacity-90 text-white">
+                <span class="iconify text-xl" data-icon="mdi:alert-circle"></span> REPORT THEM
+            </a>
+            </div>
+        </div>
     </header>
 
-    <section>
-    <!-- todo -->
+    <!-- Page overlay for mobile menu -->
+    <div id="menuOverlay" class="fixed inset-0 z-40 hidden min-[1180px]:hidden bg-black/60"></div>
+
+
+    <section class="w-full bg-red-900 px-4 md:px-8 py-16">
+    <div class="w-full max-w-6xl mx-auto">
+        <!-- Title -->
+        <h1 class="text-4xl md:text-6xl font-bold mb-8 text-white text-center">You Need Help Right Now</h1>
+        <p class="text-xl md:text-2xl text-red-100 max-w-4xl mx-auto leading-relaxed mb-12 text-center">
+            If someone is hurting you or about to hurt you, here's what to do:
+        </p>
+        
+        <!-- Three Emergency Actions -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- 1. Get Safe Now -->
+            <div class="bg-white p-8 rounded-lg text-center">
+                <span class="iconify text-6xl text-red-600 mb-4 inline-block" data-icon="mdi:run-fast"></span>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Run</h2>
+                <p class="text-gray-700 text-lg mb-6 leading-relaxed">
+                    Get away from danger. Go to a shop, church, school, or anywhere with people. Lock doors. Stay in public places.
+                </p>
+                <div class="bg-red-100 p-4 rounded-lg">
+                    <p class="text-red-800 font-bold text-lg">Trust your instincts. If it feels dangerous, it is.</p>
+                </div>
+            </div>
+
+            <!-- 2. Call for Help -->
+            <div class="bg-white p-8 rounded-lg text-center">
+                <span class="iconify text-6xl text-red-600 mb-4 inline-block" data-icon="mdi:phone-alert"></span>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Call for Help</h2>
+                <div class="space-y-4 mb-6">
+                    <a href="tel:999" class="bg-red-600 text-white p-3 rounded-lg block hover:bg-red-700 transition-colors">
+                        <p class="text-xl font-bold">999 - Police, Fire, Ambulance</p>
+                        <p class="text-sm">If you're in immediate danger</p>
+                    </a>
+                    <a href="tel:08001111" class="bg-green-600 text-white p-3 rounded-lg block hover:bg-green-700 transition-colors">
+                        <p class="text-xl font-bold">0800 1111 - Childline</p>
+                        <p class="text-sm">Free, confidential help</p>
+                    </a>
+                </div>
+                <p class="text-gray-700">You can call from any phone, even without credit.</p>
+            </div>
+
+            <!-- 3. Find a Trusted Adult -->
+            <div class="bg-white p-8 rounded-lg text-center">
+                <span class="iconify text-6xl text-red-600 mb-4 inline-block" data-icon="mdi:account-heart"></span>
+                <h2 class="text-2xl font-bold text-gray-900 mb-4">Find a Trusted Adult</h2>
+                <p class="text-gray-700 text-lg mb-4 leading-relaxed">
+                    Look for: teachers, police staff, a priest, neighbours you know, relatives who are safe.
+                </p>
+                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                    <p class="text-gray-800 font-medium">Say: "I need help. Someone is hurting me and I'm not safe."</p>
+                </div>
+                <p class="text-gray-700 text-sm">If you can't find anyone safe, stay in public places and keep calling the numbers above.</p>
+            </div>
+        </div>
+    </div>
 </section>
     
     <!-- Footer -->
@@ -214,5 +303,6 @@
     </footer>
 <!-- Page-specific JavaScript -->
 
+<script src="/assets/js/global.js"></script>"
 </body>
 </html>

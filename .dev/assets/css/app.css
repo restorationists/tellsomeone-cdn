@@ -1,9 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
     --primary: oklch(59.2% 0.249 0.584);
 }
+
 body {
     font-family: 'Raleway', sans-serif;
 }
+
+#mobileMenu { transition: transform .22s ease, opacity .22s ease; transform-origin: top; }
+#mobileMenu.hidden { opacity: 0; transform: scaleY(.95); }
 
 a {
     color: oklch(59.2% 0.249 0.584);
